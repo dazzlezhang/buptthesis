@@ -1,0 +1,2430 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2009-2011 by Yu Zhang <yu_zhang@ieee.org>
+% ----------------------------------------------------------
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any later 
+% version. The latest version of this license is in:
+%
+% http://www.latex-project.org/lppl.txt
+%
+% and version 1.3c or later is part of all distributions of 
+% LaTeX version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{buptthesis.dtx}
+%</driver>
+%<class>\NeedsTeXFormat{LaTeX2e}[2005/12/01] 
+%<class>\ProvidesClass{buptthesis.cls}
+%<config>\ProvidesFile{buptthesis.cfg}
+%<class|config>[2011/12/01 v2.0 BUPT dissertation LaTeX2e class]
+%<*driver>
+\documentclass[10pt]{ltxdoc} 
+\usepackage{dtx-style}
+\EnableCrossrefs 
+\CodelineIndex 
+\RecordChanges 
+\GetFileInfo{buptthesis.cls}
+\begin{document}
+\begin{CJK*}{UTF8}{song}
+  \DocInput{\jobname.dtx}
+\end{CJK*} 
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+% {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%  Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%  Digits        \0\1\2\3\4\5\6\7\8\9
+%  Exclamation   \!     Double quote  \"     Hash (number) \#
+%  Dollar        \$     Percent       \%     Ampersand     \&
+%  Acute accent  \'     Left paren    \(     Right paren   \)
+%  Asterisk      \*     Plus          \+     Comma         \,
+%  Minus         \-     Point         \.     Solidus       \/
+%  Colon         \:     Semicolon     \;     Less than     \<
+%  Equals        \=     Greater than  \>     Question mark \?
+%  Commercial at \@     Left bracket  \[     Backslash     \\
+%  Right bracket \]     Circumflex    \^     Underscore    \_
+%  Grave accent  \`     Left brace    \{     Vertical bar  \|
+%  Right brace   \}     Tilde         \~}
+%
+%
+% \def\pkg#1{\texttt{#1}}
+%
+% \changes{v1.0}{2009/05/01}{初始版本}
+% \changes{v2.0}{2011/12/01}{使用~\pkg{Doc}~和~\pkg{DocStrip}~重写}
+%
+% \def\fileversion{v1.0}
+% \def\filedate{2009/05/31}
+%
+% \def\fileversion{v2.0}
+% \def\filedate{2012/12/31}
+%
+% \DoNotIndex{\begin,\end,\begingroup,\endgroup}
+% \DoNotIndex{\ifx,\ifdim,\ifnum,\ifcase,\else,\or,\fi}
+% \DoNotIndex{\let,\def,\xdef,\newcommand,\renewcommand}
+% \DoNotIndex{\expandafter,\csname,\endcsname,\relax,\protect}
+% \DoNotIndex{\Huge,\huge,\LARGE,\Large,\large,\normalsize}
+% \DoNotIndex{\small,\footnotesize,\scriptsize,\tiny}
+% \DoNotIndex{\normalfont,\bfseries,\slshape,\interlinepenalty}
+% \DoNotIndex{\hfil,\par,\hskip,\vskip,\vspace,\quad}
+% \DoNotIndex{\centering,\raggedright}
+% \DoNotIndex{\c@secnumdepth,\@startsection,\@setfontsize}
+% \DoNotIndex{\ ,\@plus,\@minus,\p@,\z@,\@m,\@M,\@ne,\m@ne}
+% \DoNotIndex{\@@par,\DeclareOperation,\RequirePackage,\LoadClass}
+% \DoNotIndex{\AtBeginDocument,\AtEndDocument}
+%
+% \MakeShortVerb{\|}
+% 
+% \def\BUPTThesis{\textsc{BUPT}\-\textsc{Thesis}}
+% \def\MathTime{\textit{MathT\i{}me}}
+%
+% \IndexPrologue{\section*{索引}%
+%   \addcontentsline{toc}{section}{索~~~~引}}
+% \GlossaryPrologue{\section*{修改记录}%
+%   \addcontentsline{toc}{section}{修改记录}}
+%
+% \renewcommand{\abstractname}{摘~~要}
+% \renewcommand{\contentsname}{目~~录}
+% \renewcommand{\tablename}{表}
+%
+% \title{\bfseries%
+% \BUPTThesis \\ 北京邮电大学研究生学位论文~\LaTeXe~文档类%
+% \thanks{本文档适用于~\BUPTThesis~\fileversion, 发布日期: \filedate}}
+% \author{张~~煜 \\ \texttt{\url{yu_zhang@ieee.org}}}
+%
+% \date{2011/12/01}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   \BUPTThesis{} 是根据北京邮电大学研究生院培养与学位办公室
+%   于 2004 年 1 月 6 日颁布的《北京邮电大学关于研究生学位论文格式的统
+%   一要求》制作的 \LaTeXe{} 文档类，也即论文模板。尽管已有数位北邮人使
+%   用本模板完成其学位论文并成功提交，本模板尚未经过官方认
+%   可。{\bfseries 因使用本模板造成的一切后果由使用者本人承担。}
+% \end{abstract}
+%
+% \DeclareRobustCommand\CTeX{$\mathbb{C}$\kern-.05em\TeX}
+% \DeclareRobustCommand\TeXLive{\TeX{} Live}
+%
+% \clearpage
+% \begin{multicols}{2}[
+%   \section*{\contentsname}
+%   \setlength{\columnseprule}{.4pt}
+%   \setlength{\columnsep}{18pt}]
+%   \tableofcontents
+% \end{multicols}
+% 
+% \section{介绍}
+% \label{sec:intro}
+% \BUPTThesis{} 是根据北京邮电大学研究生院培养与学位办公室于 2004 年 1
+% 月 6 日颁布的《北京邮电大学关于研究生学位论文格式的统一要求》制作
+% 的 \LaTeXe{} 文档类，也即论文模板。
+%
+% \section{安装}
+% \subsection{基本要求}
+% 为使用 \BUPTThesis{} 需要一个 \LaTeXe{} 发行版本。推荐使用 \TeXLive{}
+% 2011 或者 \CTeX{} 2.9.0.152。\BUPTThesis{} 使用 UTF-8 编码，因此还需要
+% 一个支持 UTF-8 编码的编辑器，Emacs 23 或 TeXworks 都是不错的选择。
+%
+% \BUPTThesis{} 依赖的宏包及其版本要求列于表~\ref{tab:req-pkg}。如果编
+% 译 \BUPTThesis{} 所带的示例文件出错时，请核对这些宏包的版本是否满足要
+% 求。
+% \begin{table}
+%   \centering
+%   \caption{\BUPTThesis{}依赖的宏包}
+%   \label{tab:req-pkg}
+%   \begin{tabular}{ll|ll}
+%     \toprule
+%     宏包名 & 版本要求 & 宏包名 & 版本要求 \\
+%     \midrule
+%     |CJKnumb|    & 2008/12/29 v4.8.2   & |graphicx|    & 2009/02/05 v1.0o \\
+%     |CJKpunct|   & 2009/05/06 v4.8.2   & |helvet|      & 2005/04/12 v9.2a \\
+%     |CJKutf8|    & 2009/05/06 v4.8.2   & |hyperref|    & 2011/10/01 v6.82 \\
+%     |amsmath|    & 2000/07/18 v2.13    & |indentfirst| & 1995/11/23 v1.03 \\
+%     |amssymb|    & 2009/06/22 v3.00    & |longtable|   & 2004/02/01 v4.11 \\
+%     |array|      & 2008/09/09 v2.4c    & |mathptmx|    & 2005/04/12 v9.2a \\
+%     |bm|         & 2004/02/26 v1.1c    & |multibib|    & 2008/12/10 v1.4 \\   
+%     |booktabs|   & 2005/04/14 v1.61803 & |natbib|      & 2010/09/13 v8.31b \\
+%     |breakurl|   & 2009/01/24 v1.30    & |ntheorem|    & 2011/02/16 v1.31 \\  
+%     |calc|       & 2007/08/22 v4.3     & |subdepth|    & 2007/09/02 v0.1 \\   
+%     |caption|    & 2011/09/30 v3.2c    & |subfigure|   & 2005/04/29 v2.1.5 \\
+%     |chapterbib| & 2010/09/18 v1.17    & |textcomp|    & 2005/09/27 v1.99g \\
+%     |courier|    & 2005/04/12 v9.2a    & |titlesec|    & 2011/08/28 v2.9.1 \\
+%     |everysel|   & 2011/10/28 v1.2     & |wallpaper|   & 2006/04/21 v1.10 \\
+%     |fontenc|    & 2005/09/27 v1.99g   & |xcolor|      & 2007/01/21 v2.11 \\
+%     |glossaries| & 2010/02/06 v2.05    & |xkeyval|     & 2008/08/13 v2.6a \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+%
+% \subsection{下载与安装}
+% \label{sec:install}
+% \BUPTThesis{} 的最新发行版本可以从 \BUPTThesis{}的 Google Code 项目主页%
+% \footnote{\url{http://code.google.com/p/buptthesis}}获得。下载的发行
+% 版本压缩包解压缩后生成文件夹 |buptthesis-VERSION|\footnote{VERSION 为版
+%   本号。}，其中包括：
+% \begin{shell}
+% buptthesis.cls         buptname.eps         bupttexturec.eps
+% buptthesis.cfg         buptname.pdf         bupttexturec.pdf
+% buptthesis.bst         buptseal.eps         bupttexturey.eps
+% buptthesis.pdf         buptseal.pdf         bupttexturey.pdf
+% \end{shell}
+%
+% \section{使用说明}
+% \label{sec:usage}
+% 一个应用\BUPTThesis{} 的示例论文在解压后的 |shell/| 目录中。如果你
+% 打算用 \BUPTThesis{} 来撰写自己的学位论文，可以直接在这个示例的基础上
+% 开始。因为这个示例只是一个光秃秃的框架，所以我把它叫做 |bare_thesis|。
+% 这个 |bare_thesis| 包括下列文件：
+% \begin{table}[!h]
+%   \centering
+%   \begin{tabular}{ll}
+%     \toprule
+%     文件名 & 说明 \\
+%     \midrule
+%     |bare_thesis.tex|  & 主文件，用于定义论文的整体结构 \\
+%     |abstract.tex|     & 基本信息文件，用于定义论文的题目、作者、摘要、关键词等 \\
+%     |notations.tex|    & 符号对照表文件，用于列出文中用到的各种符号 \\
+%     |ch_intro.tex|     & 论文正文章节文件 \\
+%     |ch_concln.tex|    & 论文正文章节文件 \\
+%     |bare_thesis.bib|  & 参考文献 \BibTeX{} 文件 \\
+%     |acronyms.tex|     & 缩略语文件，用于定义文中用到的缩略语 \\
+%     |ackgt.tex|        & 致谢文件 \\
+%     |mypub.tex|        & 发表论文列表，用于列出攻读学位期间发表的学术论文 \\
+%     |mypub.bib|        & 发表论文 \BibTeX{} 文件 \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+% 下面介绍如何逐个修改这些文件来撰写你自己的论文。
+%
+% \subsection{定义论文总体框架}
+% 首先我们从主文件 |bare_thesis.tex| 开始修改。和任何 \LaTeX{} 文件一样，|bare_thesis.tex| 首先声明所使用的文档类：
+% \begin{shell}
+% \documentclass[%
+%   degree=master,%
+%   classlevel=classified,%
+%   mathfont=mathptmx,%
+%   dedication=false,%
+%   chapbib=false,%
+%   finish=online,%
+%   driver=pdftex]{buptthesis}
+% \end{shell}
+%
+% 在 |\documentclass| 的选项列表中列出了 \BUPTThesis{} 支持的所有类选项。下面列出了各个类选项的作用和所支持的键值说明。
+%
+% \subsubsection{类选项}
+% \myentry{学位类别} \DescribeMacro{degree} 用于指定该论文的学位类别
+% \begin{description}
+% \item[doctor] 博士学位
+% \item[master] 硕士学位
+% \end{description}
+%
+% \myentry{保密类型} \DescribeMacro{classlevel} 支持的保密级别包括国家
+% 标准规定的五种文献保密级别：
+% \begin{description}
+% \item[open] 公开级\quad可在国内外发行和交换；
+% \item[control] 限制级\quad不涉及国家秘密，但在一定时间内限制其交流和
+%   使用范围；
+% \item[confidential] 秘密级\quad涉及一般国家秘密； 
+% \item[classified] 机密级\quad涉及重要的国家秘密；
+% \item[topsecret] 绝密级\quad涉及最重要的国家秘密。
+% \end{description}
+% 论文的保密类型除了上述五种国标密级外，还可以设定为
+% \begin{description}
+% \item[customized] 自定义密级\quad用于设定非国标保级级别的其他保密类型。
+% \end{description}
+% 在使用自定义密级时，需要用 |\customclasslevel| 设定密级。
+%
+% \myentry{数学字体} \DescribeMacro{mathfont}
+% 论文的英文字体使用 Times 字体。用户可以通过 |mathfont| 选项
+% 设定与 Times 字体匹配的数学字体。
+% \begin{description}
+% \item[mathptmx] PSNFF字体集中包含的免费 Times 数学字体；
+% \item[mtplus] \MathTime{} Plus 商业字体；
+% \item[mtpro] \MathTime{} Professional 商业字体；
+% \end{description}
+%
+% \myentry{献辞页} \DescribeMacro{dedication}
+% 用于设定是在论文目录之前插入献辞页。
+% \begin{description}
+% \item[true] 有献辞页；
+% \item[false] 无献辞页。
+% \end{description}
+% 献辞页的内容在 |dedication.tex| 中描述。
+%
+% \myentry{参考文献位置} \DescribeMacro{chapbib}
+% \BUPTThesis{} 支持两种参考文献位置：
+% \begin{description}
+% \item[true] 在论文每章之后列出该章所引用的参考文献；
+% \item[false] 在论文正文最后一章结束后列出全文所有的参考文献。
+% \end{description}
+%
+% \myentry{输出类型} \DescribeMacro{finish}
+% \BUPTThesis{} 支持三种输出类型：
+% \begin{description}
+% \item[print] 打印版\quad用于论文最终版本打印输出和图书馆在线系统提交；
+% \item[online] 电子版\quad用于个人或者实验室电子存档；
+% \item[peerreview] 盲审版\quad用于产生隐去作者和导师姓名的送审论文。
+% \end{description}
+% 如果输出盲审版，论文封面的作者和导师信息自动隐去；发表论文列表中的作
+% 者姓名自动替换为作者序次。
+%
+% \myentry{后台驱动} \DescribeMacro{driver}
+% 用于设定后台驱动：
+% \begin{description}
+% \item[dvips] |latex| $\to$ |dvips| $\to$ |pspdf| 流程；
+% \item[dvipdf] |latex| $\to$ |dvipdfm| 流程；
+% \item[pdftex] |pdflatex| 直接输出。
+% \end{description}
+%
+% \subsection{导言区}
+% 在完成对文档类选项的修改之后，需要对导言区进行一些修改。在这里通常需要
+% \begin{itemize}
+% \item 通过 \cs{usepackage} 加载后面需要用到的宏包；
+% \item 定义自己的一些宏、命令或者环境；
+% \item 通过 \cs{graphicpath} 声明图片搜索路径，等。
+% \end{itemize}
+% 上面这些修改可以根据个人需要进行。除此之外，在导言区还必须完成三件工
+% 作。首先，通过加载 |metadata.tex| 来声明的论文基本信息：
+% \begin{shell}
+% \input{metadata}  
+% \end{shell}
+% 其次，通过加载 |acronyms.tex| 中的缩略语定义：
+% \begin{shell}
+% \loadglsentries{acronyms}
+% \end{shell}
+% 最后，用 \cs{newcite} 声明在发表论文列表中使用的相关命令。
+%
+% \subsubsection{设置论文基本信息}
+% 论文的基本信息在 |metadata.tex| 中通过 \BUPTThesis{} 定义的一系列命令
+% 进行设置。设置基本信息的命令的使用方法都是：\cs{command}\marg{基本信息}。
+% 具体命令及其对应的基本信息如下，其中以 |c| 开头的命令对应中文信息；
+% 以 |e| 开头的命令对应英文信息。
+%
+% \myentry{论文标题} 
+% \DescribeMacro{\ctitle}
+% \DescribeMacro{\etitle}
+% \DescribeMacro{\titlebreak}
+% 
+% 如果论文题目较长，在封一上需要将论文题目分成两行进行排版。封一上的论
+% 文题目换行使用 \cs{titlebreak} 命令。如果在 \cs{ctitle} 中没有使
+% 用 \cs{titlebreak} 命令，整个论文题目将被印在同一行。
+% \begin{shell}
+% \ctitle{北京邮电大学学位论文\titlebreak\LaTeXe{}模版使用示例文档}
+% \etitle{BUPTThesis: User's Manual}
+% \end{shell}
+%
+% \myentry{作者姓名}
+% \DescribeMacro{\cauthor}
+% \begin{shell}
+% \cauthor{张三}
+% \end{shell}
+%
+% \myentry{作者学号}
+% \DescribeMacro{\studentid}
+% \begin{shell}
+% \studentid{080001}
+% \end{shell}
+%
+% \myentry{申请学位名称}
+% \DescribeMacro{\cdegree}
+% \begin{shell}
+% \cdegree{工学博士}
+% \end{shell}
+%
+% \myentry{院系名称}
+% \DescribeMacro{\cdepartment}
+% \begin{shell}
+% \cdepartment{信息与通信工程学院}
+% \end{shell}
+%
+% \myentry{专业名称}
+% \DescribeMacro{\cmajor}
+% \begin{shell}
+% \cmajor{通信与信息系统}
+% \end{shell}
+%
+% \myentry{导师姓名}
+% \DescribeMacro{\csupervisor}
+% \begin{shell}
+% \cadvisor{李四}
+% \end{shell}
+%
+% \myentry{论文提交日期}
+% \DescribeMacro{\cdate}
+% \begin{shell}
+% \cdate{\CJKdigits{2012}年\CJKnumber{12}月\CJKnumber{21}日}
+% \end{shell}
+%
+% \myentry{论文摘要}
+% \DescribeMacro{\cabstract}
+% \DescribeMacro{\eabstract}
+% \begin{shell}
+% \cabstract{%
+%   中、英文摘要位于声明的次页，摘要应简明表达学位论文的内容要点，体现研%
+%   究工作的核心思想。%
+%
+%   论文摘要重点说明本项科研的目的和意义、研究方法、研究成果、%
+%   结论，注意突出具有创新性的成果和新见解的部分。%
+% }
+% \eabstract{%
+%   An abstract must be a fully self-contained, capsule %
+%   description of the paper. It can't assume (or attempt to %
+%   provoke) the reader into flipping through looking for an %
+%   explanation of what is meant by some vague statement.%
+%     
+%   It must make sense all by itself.%
+% }
+% \end{shell}
+%
+% \myentry{论文关键词}
+% \DescribeMacro{\ckeywords}
+% \DescribeMacro{\ekeywords}
+% \DescribeMacro{\kwsep}
+% 关键词之间用 \cs{kwsep} 分隔。
+% \begin{shell}
+% \ckeywords{%
+%   无层通信 \kwsep 跨层优化
+% }
+% \ekeywords{%
+%   Layer-less communications \kwsep %
+%   cross-layer optimization
+% }
+% \end{shell}
+% 
+% \myentry{保密年限}
+% \DescribeMacro{\classdur}
+% \begin{shell}
+% \classdur{三年}
+% \end{shell}
+%
+% \myentry{自定义密级} \DescribeMacro{\customclasslevel} 如果类选项的保
+% 密类别设置为自定义，那么密级名称由 \cs{customclasslevel} 定义。
+% \begin{shell}
+% \customclasslevel{某种秘密}
+% \end{shell}
+% 
+% \subsubsection{声明缩略语}
+% 论文用到的所有缩略语在 |acronyms.tex| 中声明：
+% \myentry{声明缩略语} 
+% \DescribeMacro{\newacronym\marg{entry}\marg{缩写}\marg{英文全称}\marg{中文全称}}
+% \begin{shell}
+% \newacronym{DFT}{DFT}{discrete Fourier transform}{离散 Fourier 变换}
+% \end{shell}
+% 论文可以使用多个文件声明缩略语。所有用到的缩略语声明文件需要在导言区
+% 用 \cs{loadglsentries} 命令分别加载。
+%
+% \subsubsection{声明发表论文引用命令} 
+% 为了利用 \BibTeX{} 实现发表论文列表的自动化处理，需要声明一些专门用于
+% 发表论文列表的引用命令。
+% \DescribeMacro{\newcite\marg{后缀}\marg{类别}}
+% \begin{shell}
+% \newcite{jrnl}{期刊论文}
+% \newcite{conf}{会议论文}
+% \end{shell}
+% 上面两条命令声明两种新的引用类型，分别为作者发表的期刊论文和会议论文。
+% 对于期刊论文，包括下列三个命令：
+% \begin{center}
+%   \begin{tabular}{ll}
+%     |\bibliographystylejrnl| & 用于指定该类型文献的 \BibTeX{} 样式；\\
+%     |\bibliographyjrnl| & 用于指定该类型文献的 \BibTeX{} 数据库； \\
+%     |\nocitejrnl| & 用于引用该类型的文献。
+%   \end{tabular}
+% \end{center}
+% 在发表论文列表中将用这些带后缀的命令来区分作者所发表的不同类型的论
+% 文。
+%
+% \subsection{文档区综述}
+% |bare_thesis.tex| 的导言区之后就是由 |document| 环境声明的文档区。整
+% 个论文分为前置部分、主体部分和后置部分。
+%
+% \subsubsection{论文前置部分}
+% 论文前置部分包括封面、授权与声明、中英文摘要、目录、符号对照表。
+% \begin{shell}
+% \makefrontmatter
+% \input{notations}
+% \end{shell}
+% 出符号对照表之外的论文前置部分由 \cs{makefrontmatter} 产生。符号对照
+% 表通过加载 |notations.tex| 生成。
+%
+% \subsubsection{论文主体部分}
+% 论文主体部分包括正文各章节、附录（含缩略语表）和致谢。论文的主体部分
+% 从 \cs{mainmatter} 命令开始。
+% \begin{shell}
+% \mainmatter
+% \end{shell}
+% 论文正文章节用 \cs{include} 命令依次加载。
+% \begin{shell}
+% \include{ch_intro}
+% \include{ch_concln}
+% \end{shell}
+% 如果类选项选择每一章有一个独立的参考文献表，在每一章对应的 \TeX{} 文
+% 件末尾需要指明该章使用的 \BibTeX{} 样式文件和 \BibTeX{} 数据库文件：
+% \begin{shell}
+% \bibliographystyle{buptthesis}
+% \bibliography{bare_thesis}  
+% \end{shell}
+% 上面的例子使用 |buptthesis.bst| 作为 \BibTeX{} 样式文件；使
+% 用 |bare_thesis.bib| 作为 \BibTeX{} 数据库文件。
+% 但是一种更灵活的写法是
+% \begin{shell}
+% \ifx\usechapbib\empty
+% \bibliographystyle{buptthesis}
+% \bibliography{bare_thesis}
+% \fi
+% \end{shell}
+% 这样，当类选项中设置每章单独一个参考文献时，\LaTeXe{} 会使用每章末位
+% 指明的 \BibTeX{} 样式文件和数据库文件产生该章的参考文献表；否则，将忽
+% 略掉这里的 \BibTeX{} 声明。这样可以直接通过修改类选项实现参考文献位置
+% 的控制。
+%
+% \DescribeEnv{appendix}
+% \DescribeEnv{appendix*}
+%
+% 论文的附录部分使用 |abstract| 或者 |abstract*| 环境产生。如果论文只有
+% 一个附录，则使用 |appendix*| 环境如果论文有两个或以上的附录，则使
+% 用 |abstract| 环境。
+% 
+% \DescribeMacro{\tableofacronyms}
+% 
+% 缩略语表作为附录的一部分使用 \cs{tableofacronyms} 命令产生。例如，全
+% 文只有缩略语表一个附录：
+% \begin{shell}
+% \begin{appendix*}
+%   \tableofacronyms
+% \end{appendix*}  
+% \end{shell}  
+% 如果除缩略语表外还有其他附录，可以写成：
+% \begin{shell}
+% \begin{appendix}
+%   \include{app_proof}
+%   \tableofacronyms
+% \end{appendix}  
+% \end{shell}
+%
+% 如果选择全文一个参考文献，那么需要在附录之后声明所用的 \BibTeX{} 样式
+% 文件和数据库文件。
+% \begin{shell}
+% \bibliographystyle{buptthesis}
+% \bibliography{bare_thesis}
+% \end{shell}
+% 上面的例子使用 |buptthesis.bst| 作为 \BibTeX{} 样式文件；使
+% 用 |bare_thesis.bib| 作为 \BibTeX{} 数据库文件。
+% 但是一种更灵活的写法是
+% \begin{shell}
+% \ifx\usechapbib\undefined
+% \bibliographystyle{buptthesis}
+% \bibliography{bare_thesis}
+% \fi
+% \end{shell}
+% 这样，当类选项中设置每章单独一个参考文献时，\LaTeXe{} 会忽略掉这里
+% 的 \BibTeX{} 声明。这样可以直接通过修改类选项实现参考文献位置的控
+% 制。
+%
+% \subsubsection{论文后置部分}
+% 论文的后置部分包括致谢和作者攻读学位期间发表的学术论文列表。论文后置部分
+% 从 \cs{backmatter} 开始。首先从 |ackgt.tex| 加载致谢；再
+% 从 |publist.tex| 中加载发表论文列表；最后以 \cs{newpage} 结束。
+% \begin{shell}
+% \backmatter  
+% \input{ackgt}
+% \input{publist}
+% \newpage
+% \end{shell}
+%
+% \subsection{正文章节}
+% \subsubsection{文件命名}
+% 论文正文每一章对应一个 \TeX{} 文件。正文各章对应的文件名以 |ch_| 开头，
+% 例如：|ch_intro.tex|；论文的每一个附录对应一个 \TeX{} 文件，除缩略语
+% 表外，每个附录对应的文件名以 |app_| 开头，例如：|app_proof.tex|。这样
+% 的命名方式有助于区分论文正文章节对应的 \TeX{} 文件和其他辅助 \TeX{}
+% 文件。
+%
+% \subsubsection{中文字体、字号与标点符号}
+% \myentry{中文字体} \DescribeMacro{\song} \DescribeMacro{\hei}
+% \DescribeMacro{\kai} \DescribeMacro{\fs} 
+% 
+% \BUPTThesis{} 定义了四种常用中文字体，字体选择命令如下：
+% \begin{table}[!h]
+%   \begin{tabular}{lll}
+%     \cs{song} & \song 宋体 &
+%     默认字体，用于除标题、引文、图注和表注之外的所有其他文字； \\
+%     \cs{hei}  & \hei  黑体 & 
+%     用于标题、表头和需要突出强调的文字等； \\
+%     \cs{kai}  & \kai  楷体 &
+%     用于图（表）标题、图（表）中的文字标注；\\
+%     \cs{fs}   & \fs   仿宋 &
+%     用于引用其他文献的段落。 
+%   \end{tabular}
+% \end{table}
+% 
+% \myentry{中文字号} \DescribeMacro{\chuhao} \DescribeMacro{\xiaochu}
+% \DescribeMacro{\yihao} \DescribeMacro{\xiaoyi}
+% \DescribeMacro{\erhao} \DescribeMacro{\xiaoer}
+% \DescribeMacro{\sanhao} \DescribeMacro{\xiaosan}
+% \DescribeMacro{\sihao} \DescribeMacro{\xiaosi} \DescribeMacro{\dawu}
+% \DescribeMacro{\wuhao} \DescribeMacro{\xiaowu}
+% \DescribeMacro{\liuhao} \DescribeMacro{\xiaoliu}
+% \DescribeMacro{\qihao} \DescribeMacro{\bahao} 
+%
+% \BUPTThesis{} 定义了一组字号设置命令。在正文部分，除非有特殊需要，应
+% 该尽量避免手动修改字号。
+% \begin{table}[!h]
+%   \centering
+%   \begin{tabular}{llll}
+%     \toprule
+%     命令 & 名称 & 字号（bp） & 说明 \\
+%     \midrule
+%     \cs{chuhao}    & 初号  & 42              & \\
+%     \cs{xiaochu}   & 小初  & 36              & \\
+%     \cs{yihao}     & 一号  & 26              & \\
+%     \cs{xiaoyi}    & 小一  & 24              & \\
+%     \cs{erhao}     & 二号  & 22              & \\
+%     \cs{xiaoer}    & 小二  & 18              & 封一论文题目\\
+%     \cs{sanhao}    & 三号  & 16              & 章标题\\
+%     \cs{xiaosan}   & 小三  & 15              & 摘要标题\\
+%     \cs{sihao}     & 四号  & 14              & 摘要字号 \\
+%     \cs{xiaosi}    & 小四  & 12              & 正文默认字号 \\
+%     \cs{dawu}      & 大五  & 11              & \\
+%     \cs{wuhao}     & 五号  & 10.5            & 页眉、页脚\\
+%     \cs{xiaowu}    & 小五  & \hphantom{0}9   & 脚注\\
+%     \cs{liuhao}    & 六号  & \hphantom{0}7.5 & \\
+%     \cs{xiaoliu}   & 小六  & \hphantom{0}6.5 & \\
+%     \cs{qihao}     & 七号  & \hphantom{0}5.5 & 脚注序号\\
+%     \cs{bahao}     & 八号  & \hphantom{0}5   &   \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+%
+% \myentry{破折号} 
+% \DescribeMacro{\CJKemdash}
+%
+% 中文标点符号除\emph{破折号}外都可以从键盘直接输入。破折号可以
+% 用 \cs{CJKemdash} 产生。例如：
+% \begin{shell}
+% Emacs\CJKemdash 神的编辑器
+% \end{shell}
+% 对应的输出为“Emacs\CJKemdash 神的编辑器”。 
+%
+% \subsubsection{使用缩略语}
+% 在正文中可以通过 \cs{gls*\marg{entry}} 使用事先声明的缩略语。第一次使
+% 用某缩略语时，该命令自动替换为
+% \begin{center} 
+%   \meta{中文全称}（\meta{英文全称}，\meta{缩写}）
+% \end{center}
+% 以后再次用到该缩略语时，该命令自动替换为 \meta{缩写}。例如：
+% \begin{shell}
+% \gls*{DFT} 是一种常用的信号变换。因为存在快速算法，\gls*{DFT} 得到了广泛的应用。
+% \end{shell}
+% 如果第一个 \cs{gls*\{DFT\}} 是对缩略语 DFT 的首次引用，那么上面这个例子将被自动替换为
+% \begin{shell}
+% 离散 Fourier 变换（discrete Fourier transform，DFT）是一种常用的信号变换。因为
+% 存在快速算法，DFT 得到了广泛的应用。
+% \end{shell}
+%
+% \subsubsection{数学相关}
+% \myentry{定理相关} 定理环境使用的一般形式为
+%
+% \noindent\framebox[\textwidth][l]{%
+% \begin{tabular}{l}
+% \cs{begin\marg{定理环境}\oarg{定理名称}} \\
+% \quad\marg{定理内容} \\
+% \cs{end\marg{定理环境}}
+% \end{tabular}
+% }
+%
+% \BUPTThesis{} 提供下列定理环境：
+% 
+% \DescribeEnv{assumption} 假设
+% \begin{shell}
+% \begin{assumption}[蠢人假设]
+%   Most people are stupid.
+% \end{assumption}
+% \end{shell}
+%
+% \DescribeEnv{definition} 定义
+% \begin{shell}
+% \begin{definition}[定义]
+%   对一个概念或者词或者词组的定义是描写其内涵，即描写其所有和仅有的元
+%   素的共有特征。其外延是所有这个概念、词或者词组包含的事务。
+% \end{definition}
+% \end{shell}
+%
+% \DescribeEnv{proposition} 命题
+% \begin{shell}
+% \begin{proposition}
+%   $\sqrt{2}$ 不是有理数。
+% \end{proposition}
+% \end{shell}
+%
+% \DescribeEnv{proof} 证明
+% \begin{shell}
+% \begin{proof}
+%   假设 $\sqrt{2}$ 是有理数，那么存在正整数 $p$ 使得 $p\sqrt{2}$ 为整
+%   数。不妨设 $a$ 为其中最小的（根据算术基本定理，必然存在最小的 $a$）。
+%   考虑 $b\sqrt{2} = a\sqrt{2} - a$。$b$ 是一个比 $a$ 小的正整数，
+%   但 $b\sqrt{2} = 2a - a \sqrt{2}$ 也是整数。这与 $a$ 的最小性矛盾！
+%   所以 $\sqrt{2}$ 不是有理数。
+% \end{proof}
+% \end{shell}
+%
+% \DescribeEnv{lemma} 引理
+% \begin{shell}
+% \begin{lemma}[Fermat 引理]
+%   函数 $f(x)$ 在点 $x_0$ 的某邻域 $U(x_0)$ 内有定义，并且在 $x0$ 处可
+%   导，如果对于任意的 $x \in U(x_0)$，都有 $f(x) \leq f(x_0)$
+%   (或 $f(x) \geq f(x_0)$)，那么 $f'(x_0) = 0$。
+% \end{lemma}
+% \end{shell}
+%
+% \DescribeEnv{theorem} 定理
+% \begin{shell}
+% \begin{theorem}[勾股定理]
+%   直角三角形两直角边边长平方和等于斜边边长的平方。
+% \end{theorem}
+% \end{shell}
+%
+% \DescribeEnv{axiom} 公理
+% \begin{shell}
+% \begin{axiom}[平行公理]
+%   过已知直线外一点有且只有一条直线与已知直线平行。
+% \end{axiom}
+% \end{shell}
+%
+% \DescribeEnv{corollary} 推论 
+% \begin{shell}
+% \begin{corollary}
+%   如果两条直线都与第三条直线平行，那么这两条直线也互相平行。    
+% \end{corollary}
+% \end{shell}
+%
+% \DescribeEnv{example} 例
+% \begin{shell}
+% \begin{example}
+%   矩阵的 Frobenius 范数与谱范数是等价范数。
+% \end{example}
+% \end{shell}
+%
+% \DescribeEnv{remark} 注释
+% \begin{shell}
+% \begin{remark}
+%   不要把矩阵的元 $p$-范数与诱导 $p$-范数混淆。
+% \end{remark}
+% \end{shell}
+%
+% \DescribeEnv{problem} 问题
+% \begin{shell}
+% \begin{problem}
+%   \begin{align}
+%     \arg\min f(x) \quad \text{s.t.} \quad g(x) < 0.
+%   \end{align}
+% \end{problem}
+% \end{shell}
+%
+% \DescribeEnv{conjecture} 猜想
+% \begin{shell}
+% \begin{conjecture}[Riemann 猜想]
+%   Riemann $\zeta$ 函数非平凡零点的实数部分是 $1/2$.
+% \end{conjecture}
+% \end{shell}
+%
+% \subsubsection{图与表}
+% \BUPTThesis{} 调用 \pkg{subfigure} 宏包。如果需要子图可以使
+% 用 |subfigure| 环境。
+%
+% \BUPTThesis{} 调用 \pkg{longtable} 和 \pkg{booktab} 宏包。
+% 
+%
+% \StopEventually{\PrintChanges\PrintIndex} \clearpage
+%
+% \endinput
+%
+% \section{实现}
+% \label{sec:implmnt}
+% \subsection{定义选项}
+% \label{sec:implmnt:defopt}
+% 使用\pkg{xkeyval}定义类选项。
+%    \begin{macrocode}
+%<class>\RequirePackage{xkeyval}
+%    \end{macrocode}
+%
+% 定义论文类型
+%    \begin{macrocode}
+%<*class>
+\define@choicekey*[bupt]{class}{degree}[\bupt@tempa\bupt@degree]{%
+  doctor,master}[doctor]{\relax}
+%    \end{macrocode}
+%
+% 保密等级选项
+%    \begin{macrocode}
+\define@choicekey*[bupt]{class}{classlevel}[\bupt@tempa\bupt@classlevel]{%
+  open,control,confidential,classified,topsecret,%
+  customized}[open]{\relax}
+%    \end{macrocode}
+%
+% 献辞页选项
+%    \begin{macrocode}
+\define@boolkey[bupt]{class}{dedication}[false]{\relax}
+%    \end{macrocode}
+%
+% 数学字体选项
+%    \begin{macrocode}
+\define@choicekey*[bupt]{class}{mathfont}[\bupt@tempa\bupt@mathfont]{%
+  mathptmx, mtplus, mtpro}[mathptmx]{\relax}
+%    \end{macrocode}
+%
+% 参考文献格式选项
+%    \begin{macrocode}
+\define@boolkey[bupt]{class}{chapbib}[false]{\relax}
+%    \end{macrocode}
+%
+% 输出选项
+%    \begin{macrocode}
+\define@choicekey*[bupt]{class}{finish}[\bupt@tempa\bupt@finish]{%
+  online,print,peerreview}[print]{\relax}
+%    \end{macrocode}
+%
+% 后台驱动选项
+%    \begin{macrocode}
+\define@choicekey*[bupt]{class}{driver}[\bupt@tempa\bupt@driver]{%
+  dvips,dvipdf,pdftex}[pdftex]{%
+  \PassOptionsToPackage{#1}{graphicx}
+  \PassOptionsToPackage{#1}{hyperref}
+  \PassOptionsToPackage{#1}{xcolor}
+}
+%    \end{macrocode}
+%
+% 设置默认选项
+%    \begin{macrocode}
+\presetkeys[bupt]{class}{%
+  degree=doctor,%
+  classlevel=open,%
+  dedication=false,%
+  mathfont=mathptmx,%
+  chapbib=false,%
+  finish=online,%
+  driver=dvips%
+}{}
+\DeclareOptionX*{\PassOptionsToClass{\CurrentOption}{book}}
+\ProcessOptionsX[bupt]<class>\relax
+\LoadClass[12pt, a4paper, openright, twoside]{book}%
+%</class>
+%    \end{macrocode}
+%
+% \subsection{加载宏包}
+% \label{sec:implmnt:loadpkg}
+%    \begin{macrocode}
+%<*class>
+\RequirePackage{calc}
+%    \end{macrocode}
+%
+% 字体使用扩展 T1 与 TS1 编码
+%    \begin{macrocode}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{textcomp}
+%    \end{macrocode}
+%
+% 字体
+%    \begin{macrocode}
+\ifcase\bupt@mathfont\relax
+\RequirePackage{mathptmx}
+\RequirePackage{courier}
+\RequirePackage[scaled=.92]{helvet}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\or
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage[mtbold,subscriptcorrection,mtplusscr,T1]{mathtime}       
+\newcommand\hmmax{0}
+\or
+\RequirePackage{times}
+\RequirePackage[scaled=.92]{helvet} 
+\RequirePackage{amsmath}
+\RequirePackage[subscriptcorrection,slantedGreek]{mtpro}
+\RequirePackage[mtphrb]{mtpams}
+\RequirePackage[mtpscr,mtpfrak]{mtpb}
+\fi
+\RequirePackage{bm}
+%    \end{macrocode}
+%
+% 数学相关
+%    \begin{macrocode}
+\RequirePackage[low-sup]{subdepth}
+\RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
+%    \end{macrocode}
+%
+% 中文相关
+%    \begin{macrocode}
+\RequirePackage{CJKutf8}
+\RequirePackage{CJKnumb}
+\RequirePackage{CJKpunct}
+\RequirePackage{indentfirst}
+%    \end{macrocode}
+%
+% 标题格式
+%    \begin{macrocode}
+\RequirePackage{caption}
+\RequirePackage{everysel}
+\RequirePackage{titlesec}
+%    \end{macrocode}
+%
+% 图形与表格
+%    \begin{macrocode}
+\RequirePackage{graphicx}
+\RequirePackage{subfigure}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{booktabs}
+\RequirePackage[neverdecrease]{paralist}
+%    \end{macrocode}
+%
+% 参考文献
+%    \begin{macrocode}
+\ifbupt@class@chapbib
+\RequirePackage[sectionbib,square,super,numbers,sort&compress]{natbib}
+\let\bupt@bibcite\bibcite
+\let\bupt@nocite\nocite
+\let\bupt@include\include
+\let\bupt@org@bibcite\org@bibcite
+\let\bupt@bibliographystyle\bibliographystyle
+\let\bupt@bibliography\bibliography
+\RequirePackage{chapterbib}
+\def\usechapbib{}
+\else
+\RequirePackage[square,super,numbers,sort&compress]{natbib}
+\fi
+\RequirePackage[resetlabels]{multibib}
+%\RequirePackage{multibib}
+%\RequirePackage{bibentry}
+%    \end{macrocode}
+%
+% 缩略语
+%    \begin{macrocode}
+\RequirePackage[toc,section=chapter]{glossaries}
+%    \end{macrocode}
+%
+% 书签与链接
+%    \begin{macrocode}
+\RequirePackage[usenames,dvipsnames,cmyk]{xcolor}
+\RequirePackage{hyperref}
+\hypersetup{
+  unicode,%
+  bookmarksopen=true,%
+  colorlinks=true,%
+  citebordercolor=white
+}
+\ifnum\bupt@finish=0%
+\hypersetup{%
+  linkcolor=Blue,%
+  citecolor=Blue,%
+  urlcolor=Mahogany%
+}
+\RequirePackage{wallpaper}
+\else%
+\hypersetup{%
+  linkcolor=black,%
+  citecolor=black,%
+  urlcolor=black%
+}
+\fi
+\RequirePackage{breakurl}
+%</class>
+%    \end{macrocode}
+%
+% \subsection{中文支持}
+%
+% \subsubsection{中文字体与字号}
+%    \begin{macrocode}
+%<*class>
+\newcommand\song{\CJKfamily{song}}
+\newcommand\hei{\CJKfamily{hei}}
+\newcommand\kai{\CJKfamily{kai}}
+\newcommand\fs{\CJKfamily{fs}}
+\newlength\CJKtwospaces
+\newlength\CJKfourspaces
+\newlength\bupt@linespace
+\newcommand{\bupt@choosefont}[2]{%
+  \setlength{\bupt@linespace}{#2*\real{#1}}%
+  \fontsize{#2}{\bupt@linespace}\selectfont
+}
+\def\bupt@define@fontsize#1#2{%
+  \expandafter\newcommand\csname #1\endcsname[1][\baselinestretch]{%
+    \bupt@choosefont{##1}{#2}
+  }
+}
+\bupt@define@fontsize{chuhao}{42bp}
+\bupt@define@fontsize{xiaochu}{36bp}
+\bupt@define@fontsize{yihao}{26bp}
+\bupt@define@fontsize{xiaoyi}{24bp}
+\bupt@define@fontsize{erhao}{22bp}
+\bupt@define@fontsize{xiaoer}{18bp}
+\bupt@define@fontsize{sanhao}{16bp}
+\bupt@define@fontsize{xiaosan}{15bp}
+\bupt@define@fontsize{sihao}{14bp}
+\bupt@define@fontsize{xiaosi}{12bp}
+\bupt@define@fontsize{dawu}{11bp}
+\bupt@define@fontsize{wuhao}{10.5bp}
+\bupt@define@fontsize{xiaowu}{9bp}
+\bupt@define@fontsize{liuhao}{7.5bp}
+\bupt@define@fontsize{xiaoliu}{6.5bp}
+\bupt@define@fontsize{qihao}{5.5bp}
+\bupt@define@fontsize{bahao}{5bp}
+% 封面标题字号
+\bupt@define@fontsize{covertitlesize}{32bp}
+% 图注字号
+\bupt@define@fontsize{annotationsize}{8pt}
+% 默认字号
+\renewcommand\normalsize{%
+  \@setfontsize\normalsize{12bp}{20bp}
+  \abovedisplayskip=10bp \@plus 2bp \@minus 2bp
+  \abovedisplayshortskip=10bp \@plus 2bp \@minus 2bp
+  \belowdisplayskip=\abovedisplayskip
+  \belowdisplayshortskip=\abovedisplayshortskip
+}
+% 字距
+\newcommand*{\ziju}[1]{\renewcommand{\CJKglue}{\hskip #1}}
+%    \end{macrocode}
+% 关键字间隔
+\newcommand{\keyspace}{\hspace{2em}}
+%
+% 特殊~CJK~符号: 空白字符、脚注用带圈数字
+%    \begin{macrocode}
+\def\CJKtwochars{\CJKchar{"030}{"000}\CJKchar{"030}{"000}}
+\def\CJKfourchars{\CJKtwochars\CJKtwochars}
+\def\bupt@circnum#1{%
+% 1$\sim$10的带圈数字直接使用字库中的带圈数字
+\ifnum \value{#1} = 1 \CJKchar{"024}{"060}
+\else\ifnum \value{#1} = 2 \CJKchar{"024}{"061}
+\else\ifnum \value{#1} = 3 \CJKchar{"024}{"062}
+\else\ifnum \value{#1} = 4 \CJKchar{"024}{"063}
+\else\ifnum \value{#1} = 5 \CJKchar{"024}{"064}
+\else\ifnum \value{#1} = 6 \CJKchar{"024}{"065}
+\else\ifnum \value{#1} = 7 \CJKchar{"024}{"066}
+\else\ifnum \value{#1} = 8 \CJKchar{"024}{"067}
+\else\ifnum \value{#1} = 9 \CJKchar{"024}{"068}
+\else\ifnum \value{#1} = 10 \CJKchar{"024}{"069}
+% 11$\sim$99的带圈数字
+  \else \textcircled{\qihao\arabic{#1}}
+  \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+}
+% 破折号
+\newcommand{\CJKemdash}{%
+  \kern0.3ex\rule[0.8ex]{\CJKtwospaces}{0.25bp}\kern0.3ex%
+}
+% 圆括号
+\def\CJKleftparen{\CJKchar{"0FF}{"008}}
+\def\CJKrightparen{\CJKchar{"0FF}{"009}}
+%</class>
+%    \end{macrocode}
+%
+% \subsection{中文段落格式}
+% \subsubsection{章节标题格式}
+%    \begin{macrocode}
+%<*class>
+\renewcommand\chapter{%
+  \secdef\@chapter\@schapter%
+}
+\renewcommand\section{%
+  \@startsection {section}{1}{\z@}%
+  {-24bp \@plus -1ex \@minus -.2ex}%
+  {6bp \@plus .2ex}%
+  {\hei\bfseries\csname bupt@title@font\endcsname\sihao[1.429]}%
+}
+\renewcommand\subsection{%
+  \@startsection{subsection}{2}{\z@}%
+  {-16bp \@plus -1ex \@minus -.2ex}%
+  {6bp \@plus .2ex}%
+  {\hei\bfseries\csname bupt@title@font\endcsname\xiaosi[1.538]}%
+}
+\renewcommand\subsubsection{%
+  \@startsection{subsubsection}{3}{\z@}%
+  {-16bp \@plus -1ex \@minus -.2ex}%
+  {6bp \@plus .2ex}%
+  {\song\csname bupt@title@font\endcsname\xiaosi[1.667]}%
+}
+%</class>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%<*config>
+\newcommand\CJKprepartname{第}
+\newcommand\CJKpartname{部分}
+\newcommand\CJKprechaptername{第}
+\newcommand\CJKchaptername{章}
+\renewcommand\appendixname{附录}
+\newcommand\CJKthepart{\CJKnumber{\@arabic\c@part}}
+\newcommand\CJKthechapter{\CJKnumber{\@arabic\c@chapter}}
+\renewcommand\chaptername{\CJKprechaptername\CJKthechapter\CJKchaptername}
+%</config>
+%    \end{macrocode}
+% 辅助宏
+%    \begin{macrocode}
+%<*class>
+\def\bupt@preschapter{}
+\def\bupt@schapterformat{}
+\renewcommand{\chaptermark}[1]{\@mkboth{\@chapapp\ ~~#1}{}}
+\def\@chapter[#1]#2{%
+  \cleardoublepage\phantomsection%
+  \thispagestyle{bupt@headings}%
+  \global\@topnum\z@%
+  \@afterindenttrue%
+  \ifnum \c@secnumdepth >\m@ne
+  \if@mainmatter
+  \refstepcounter{chapter}%
+  \addcontentsline{toc}{chapter}{%
+    \protect\numberline{\@chapapp}#1%
+  }
+  \else
+  \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \else
+  \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  \@makechapterhead{#2}
+}
+\def\@makechapterhead#1{%
+  \vspace*{20bp}%
+  {%
+    \parindent \z@ \centering
+    \hei\bfseries\csname bupt@title@font\endcsname\sanhao[1]
+    \ifnum \c@secnumdepth >\m@ne
+    \@chapapp\hskip1em
+    \fi
+    #1\par\nobreak
+    \vskip 24bp
+  }
+}
+\def\@schapter#1{%
+  \cleardoublepage\phantomsection%
+  \thispagestyle{bupt@headings}%
+  \global\@topnum\z@%
+  \@afterindenttrue%
+  \ifx\bupt@preschapter\empty
+    \relax
+  \else
+    \bupt@preschapter
+  \fi
+  \@makeschapterhead{#1}
+  \@afterheading}
+\def\@makeschapterhead#1{%
+  \vspace*{20bp}%
+  {%
+    \parindent \z@ \centering
+    \hei\bfseries\csname bupt@title@font\endcsname
+    \ifx\bupt@schapterformat\empty
+    \sanhao[1]
+    \else
+    \bupt@schapterformat
+    \fi
+    \interlinepenalty\@M
+    #1\par\nobreak
+    \vskip 24bp%
+  }
+}
+\def\bupt@chapter*{%
+  \@ifnextchar [ %
+  {\bupt@@chapter}     % 如果是\bupt@chapter*[，按\bupt@@chapter处理
+  {\bupt@@chapter@}    % 否则是\bupt@chapter*{<title>}，按\bupt@@chapter@处理
+}
+\def\bupt@@chapter@#1{%
+  \bupt@@chapter[#1]{#1}%
+}
+\def\bupt@@chapter[#1]#2{%
+  \@ifnextchar [ % ]
+  {\bupt@@@chapter[#1]{#2}}      % 如果是\bupt@chapter*[#1]{#2}[，
+                                 % 按\bupt@@@chapter[#1]{#2}处理
+  {\bupt@@@chapter[#1]{#2}[][]}} % 如果是\bupt@chapter*[#1]{#2}
+                                 % 按\bupt@@@chapter[#1]{#2}[][]处理
+\def\bupt@@@chapter[#1]#2[#3]{%
+  \@ifnextchar [ % ]
+  {\bupt@@@@chapter[#1]{#2}[#3]} % 如果是\bupt@chapter*[#1]{#2}[#3][#4]，
+                                  % 按\bupt@@@@chapter[#1]{#2}[#3]处理 
+  {\bupt@@@@chapter[#1]{#2}[#3][]}% 如果是\bupt@chapter*[#1]{#2}[#3]
+                                  % 按\bupt@@@@chapter[#1]{#2}[#3][]处理 
+}
+\def\bupt@@@@chapter[#1]#2[#3][#4]{%
+  \cleardoublepage%
+  \phantomsection%
+  \def\@tmpa{#1}               % <tocline>
+  \def\@tmpb{#3}               % <titlesize>
+  \def\@tmpc{#4}               % <prefix>
+  \ifx\@tmpa\@empty
+    \pdfbookmark[0]{#2}{\expandafter\@gobble\string#2}
+  \else
+    \addcontentsline{toc}{chapter}{#1}
+  \fi
+  \ifx\@tmpc\@empty
+    \def\bupt@preschapter{}
+  \else
+    \def\bupt@preschapter{%
+      \par{%
+        \sanhao[1]\bfseries%\hei
+        \begin{center}
+          {#4}
+        \end{center}
+      }
+    }
+  \fi
+  \chapter*{#2}
+  \@mkboth{#2}{#2}
+}
+%</class>
+%    \end{macrocode}
+%
+% \subsubsection{目录格式}
+%    \begin{macrocode}
+%<*config>
+\renewcommand\contentsname{目\hspace{1em}录}
+%</config>
+%<*class>
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+\renewcommand\tableofcontents{%
+  \bupt@chapter*[]{\contentsname}
+  \normalsize\@starttoc{toc}}
+\def\bupt@toc@font{}%{\bfseries}%sffamily
+\def\@tocrmarg{2em}
+\def\@dotsep{1} % 目录点间的距离
+\def\@dottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth \else
+  \vskip \z@ \@plus.2\p@
+  {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+    \parindent #2\relax\@afterindenttrue
+    \interlinepenalty\@M
+    \leavevmode
+    \@tempdima #3\relax
+    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+    {\csname bupt@toc@font\endcsname #4}\nobreak
+    \leaders\hbox{$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill
+    \nobreak{\normalfont \normalcolor #5}%
+    \par}%
+  \fi}
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+  \addpenalty{-\@highpenalty}%
+  \vskip 4bp \@plus\p@
+  \setlength\@tempdima{4em}%
+  \begingroup
+  \parindent \z@ \rightskip \@pnumwidth
+  \parfillskip -\@pnumwidth
+  \leavevmode
+  \advance\leftskip\@tempdima
+  \hskip -\leftskip
+  {\hei\bfseries\csname bupt@toc@font\endcsname #1} % numberline is called here, and it use @tempdima
+  \leaders\hbox{$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill
+  \nobreak{\normalfont \normalcolor #2}\par
+  \penalty\@highpenalty
+  \endgroup
+  \fi}
+\renewcommand*\l@section{\@dottedtocline{1}{1.2em}{2.1em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{2em}{3em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{3.5em}{3.8em}}
+%</class>
+%    \end{macrocode}
+%
+% 中文段落首行缩进两字符
+%    \begin{macrocode}
+%<*class>
+\def\CJKindent{%
+  \settowidth\CJKtwospaces{\CJKtwochars}%
+  \parindent\CJKtwospaces
+}
+%    \end{macrocode}
+%
+% 脚注
+%    \begin{macrocode}
+\renewcommand{\thefootnote}{\bupt@circnum{footnote}}
+\renewcommand{\thempfootnote}{\bupt@circnum{mpfootnote}}
+\def\footnoterule{%
+  \vskip-3\p@\hrule\@width0.3\textwidth\@height0.4\p@\vskip2.6\p@%
+}
+\let\bupt@footnotesize\footnotesize
+\renewcommand\footnotesize{\bupt@footnotesize\xiaowu[1.5]}
+\def\@makefnmark{%
+  \textsuperscript{\hbox{\normalfont\@thefnmark}}%
+}
+\long\def\@makefntext#1{
+  \bgroup
+  \setbox\@tempboxa\hbox{%
+    \hb@xt@ 2em{\@thefnmark\hss}}
+  \leftmargin\wd\@tempboxa
+  \rightmargin\z@
+  \linewidth \columnwidth
+  \advance \linewidth -\leftmargin
+  \parshape \@ne \leftmargin \linewidth
+  \footnotesize
+  \@setpar{{\@@par}}%
+  \leavevmode
+  \llap{\box\@tempboxa}%
+  #1\par%
+  \egroup%
+}
+%    \end{macrocode}
+%
+% 导言区支持中文
+%    \begin{macrocode}
+\def\bupt@active@cjk{
+  \count@=127
+  \@whilenum\count@<255 \do{%
+    \advance\count@ by 1
+    \lccode`\~=\count@
+    \catcode\count@=\active
+    \lowercase{\def~{\kern1ex}}}}
+%    \end{macrocode}
+%
+% 在文档模版结束后加载配置文件 buptthesis.cfg
+%    \begin{macrocode}
+\AtEndOfClass{\bupt@active@cjk\input{buptthesis.cfg}}
+%    \end{macrocode}
+% 
+% 解决selectfont冲突
+%    \begin{macrocode}
+\def\bupt@fixselectfont{%
+  \DeclareRobustCommand{\selectfont}{%
+    \ifx\f@linespread\baselinestretch 
+    \else\set@fontsize\baselinestretch\f@size\f@baselineskip
+    \fi
+    \xdef\font@name{%
+      \csname\curr@fontshape/\f@size\endcsname}%
+    \pickup@font
+    \font@name
+    % CJK addition:
+    \CJK@bold@false
+    \csname \curr@fontshape\endcsname
+    % everysel addition:
+    \@EverySelectfont@EveryHook
+    \@EverySelectfont@AtNextHook
+    \gdef\@EverySelectfont@AtNextHook{}%
+    % end additions
+    \size@update
+    \enc@update
+  }
+}
+%    \end{macrocode}
+%
+% 启用CJK
+%    \begin{macrocode}
+\def\bupt@beginCJK{%
+  \begin{CJK*}{UTF8}{song}%
+    \sloppy\CJKindent\CJKtilde%
+  }
+\def\bupt@endCJK{%
+  \bupt@inside@back@cover%
+  \bupt@back@cover%
+\end{CJK*}%
+}
+\let\bupt@begindocumenthook\@begindocumenthook
+\let\bupt@enddocumenthook\@enddocumenthook
+\def\AtBeginDocument{\g@addto@macro\bupt@begindocumenthook}
+\def\AtEndDocument{\g@addto@macro\bupt@enddocumenthook}
+\def\@begindocumenthook{\bupt@begindocumenthook\bupt@beginCJK}
+\def\@enddocumenthook{\bupt@endCJK\bupt@enddocumenthook}
+%</class>
+%    \end{macrocode}
+%
+% \subsection{论文格式}
+%
+% \subsubsection{总体格式}
+% 论文页面采用为标准~A4 (210~mm $\times$ 297~mm)~幅面，版芯尺寸
+% 为~155~mm$\times$230~mm。
+%    \begin{macrocode}
+%<*class>
+\AtBeginDvi{\special{papersize=\the\paperwidth,\the\paperheight}}
+\AtBeginDvi{\special{!%
+    \@percentchar\@percentchar BeginPaperSize: a4
+    ^^Ja4^^J\@percentchar\@percentchar EndPaperSize}}
+\setlength{\hoffset}{-1in}
+\addtolength{\hoffset}{5mm}           % 装订线: 1in + \hoffset = 5mm
+\setlength{\voffset}{-1in}            %
+\setlength\marginparwidth{0mm}        %
+\setlength\marginparsep{0mm}          %
+\setlength{\textwidth}{\paperwidth}   %
+\addtolength{\textwidth}{-55mm}       % 版芯宽度: 155mm = 210mm - 55mm
+\setlength{\oddsidemargin}{25mm}      % 内侧页边距: 奇数页左侧页边距
+\setlength{\evensidemargin}{20mm}     % 外侧页边距: 偶数页左侧页边距 
+\setlength{\textheight}{\paperheight} %
+\setlength{\headheight}{20pt}         % 页眉高度: 20pt
+\setlength{\topskip}{0pt}             % 
+\setlength{\skip\footins}{15pt}       %
+\setlength{\topmargin}{25mm}          % 上边距: 25 mm (原为30mm)
+\setlength{\footskip}{15mm}           %
+\setlength{\headsep}{5mm}             %
+\addtolength{\textheight}{-77mm}      % 文字高度:  297mm (纸张高度)
+                                      %          - 25mm (上边距) 
+                                      %          -  7mm (\headerheight, 20pt) 
+                                      %          -  5mm (\headsep)
+                                      %          - 15mm (\footskip)
+                                      %          - 25mm (下边距)
+%    \end{macrocode}
+%
+% 论文分为前置部分、主体部分和结尾部分。其中，前置部分包括封面、封二、
+% 题名页、英文题名页、摘要页、目次页等；主体部分包括论文各章节；结尾部
+% 分。前置部分页码使用大写罗马数字；主体部分页码使用阿拉伯数字。
+%    \begin{macrocode}
+\renewcommand\frontmatter{%
+  \cleardoublepage%
+  \@mainmatterfalse%
+  \pagenumbering{Roman}
+  \pagestyle{bupt@empty}
+}
+\renewcommand\mainmatter{%
+  \cleardoublepage
+  \@mainmattertrue
+  \pagenumbering{arabic}
+  \pagestyle{bupt@headings}
+}
+\def\bupt@nocite#1{%
+  \@bsphack%
+  \ifx \@onlypreamble \document %
+  \@for \@citeb :=#1\do {%
+    \edef \@citeb {\expandafter \@firstofone \@citeb }
+    \if@filesw \immediate \write \@auxout {%
+      \string \citation {\@citeb }
+    }
+    \fi%
+    \@ifundefined {b@\@citeb }{%
+      \G@refundefinedtrue \@latex@warning {%
+        Citation `\@citeb ' undefined}
+    }{%
+    }
+  }
+  \else%
+  \@latex@error {%
+    Cannot be used in preamble%
+  }
+  \@eha%
+  \fi%
+  \@esphack%
+}
+\renewcommand\backmatter{%
+  % \let\bibcite\bupt@bibcite
+  % \let\nocite\bupt@nocite
+  \ifbupt@class@chapbib%
+  \let\bibsection\bupt@bibsection
+  %\renewcommand*\chapter{\subsection}
+  \let\bibcite\bupt@bibcite
+  \let\nocite\bupt@nocite
+  \let\include\bupt@include
+  \let\org@bibcite\bupt@org@bibcite
+  \let\bibliographystyle\bupt@bibliographystyle
+  \let\bibliography\bupt@bibliography
+  \fi
+  \long\def\bibsection{%
+    \subsection*{%
+      \bibname \@mkboth{%
+        \MakeUppercase{\bibname}
+      }
+      % {%
+      %   \MakeUppercase{\bibname}
+      % }
+    }
+  }
+%  \show\bibsection
+  \cleardoublepage%
+}
+%    \end{macrocode}
+%
+% 定义三种页眉页脚页面
+%    \begin{macrocode}
+\let\bupt@cleardoublepage\cleardoublepage
+\newcommand{\bupt@clearemptydoublepage}{%
+  \clearpage{\pagestyle{empty}\bupt@cleardoublepage}}
+\let\cleardoublepage\bupt@clearemptydoublepage
+%% ps@bupt@empty 无页眉，无页脚
+\def\ps@bupt@empty{%
+  \let\@oddhead\@empty%
+  \let\@evenhead\@empty%
+  \let\@oddfoot\@empty%
+  \let\@evenfoot\@empty%
+}
+%% ps@bupt@plain 无页眉，页脚为五号页码
+\def\ps@bupt@plain{%
+  \let\@oddhead\@empty%
+  \let\@evenhead\@empty%
+  \def\@oddfoot{\hfil\wuhao\thepage\hfil}%
+  \let\@evenfoot=\@oddfoot%
+}
+%% ps@bupt@headings 有页眉有页脚
+\def\ps@bupt@headings{%
+  \def\@oddhead{%
+    \vbox to\headheight{%
+      \hb@xt@\textwidth{%
+        \wuhao\song\hfill\bupt@page@head%
+      }%
+      \vskip3pt\hbox{%
+        \vrule width\textwidth height0.4pt depth0pt
+      }
+    }
+  }
+  \def\@evenhead{%
+    \vbox to\headheight{%
+      \hb@xt@\textwidth{%
+        \wuhao\song\leftmark\hfill
+      }%
+      \vskip3pt\hbox{%
+        \vrule width\textwidth height0.4pt depth0pt
+      }
+    }
+  }
+  \def\@oddfoot{\hfil\wuhao\thepage\hfil}
+  \let\@evenfoot=\@oddfoot
+}
+%</class>
+%    \end{macrocode}
+%
+% \subsubsection{封面和封底}
+%
+%    \begin{macrocode}
+%<*class>
+\newcommand\bupt@def@metadata[2][]{%
+  \def\@tempa{#1}
+  \ifx\@tempa\@empty
+  \def\bupt@def{\expandafter\gdef}
+  \else
+  \def\bupt@def{\long\expandafter\gdef}
+  \fi
+  \bupt@def\csname #2\endcsname##1{%
+    \bupt@def\csname bupt@meta@#2\endcsname{##1}
+  }
+  \csname #2\endcsname{}
+}
+%</class>
+%    \end{macrocode}
+%
+% 声明元数据
+%    \begin{macrocode}
+%<*class>
+\bupt@def@metadata{studentid}
+\bupt@def@metadata{ctitle}
+\bupt@def@metadata{cdegree}
+\bupt@def@metadata{cdepartment}
+\bupt@def@metadata{cmajor}
+\bupt@def@metadata{cauthor}
+\bupt@def@metadata{csupervisor}
+\bupt@def@metadata{cassosupervisor}
+\bupt@def@metadata{ccosupervisor}
+\bupt@def@metadata{cdate}
+\bupt@def@metadata[long]{cabstract}
+\bupt@def@metadata{ckeywords}
+\bupt@def@metadata{etitle}
+\bupt@def@metadata{edegree}
+\bupt@def@metadata{edepartment}
+\bupt@def@metadata{emajor}
+\bupt@def@metadata{eauthor}
+\bupt@def@metadata{esupervisor}
+\bupt@def@metadata{eassosupervisor}
+\bupt@def@metadata{ecosupervisor}
+\bupt@def@metadata{edate}
+\bupt@def@metadata[long]{eabstract}
+\bupt@def@metadata{ekeywords}
+\bupt@def@metadata{classdur}
+\bupt@def@metadata{hiddenmark}
+\bupt@def@metadata{customclasslevel}
+%</class>
+%    \end{macrocode}
+%
+% 定义标签
+%    \begin{macrocode}
+%<*config>
+\ifcase\bupt@degree\relax
+\def\bupt@page@head{北京邮电大学博士学位论文}
+\def\bupt@label@covertitle{博士研究生学位论文}
+\or
+\def\bupt@page@head{北京邮电大学硕士学位论文}
+\def\bupt@label@covertitle{硕士研究生学位论文}
+\fi
+\def\bupt@label@cauthor{姓\hfill名}
+\def\bupt@label@cmajor{专\hfill业}
+\def\bupt@label@csupervisor{导\hfill师}
+\def\bupt@label@cdepartment{学\hfill院}
+\def\bupt@label@ctitle{题目}
+\def\bupt@label@classlevel{密级}
+\def\bupt@label@classdur{保密期限}
+\def\bupt@schoolename{北京邮电大学}
+\def\bupt@label@studentid{学\hfill号}
+\def\bupt@title@sep{：}
+\cdate{\CJKdigits{\the\year}年\CJKnumber{\the\month}月}
+%</config>
+%    \end{macrocode}
+%
+% 盲审隐藏命令
+%\begin{macrocode}
+%<*class>
+\def\bupt@hide#1{%
+  \ifnum\bupt@finish=2
+  \bupt@meta@hiddenmark
+  \else
+  {#1}
+  \fi%
+}
+%    \end{macrocode}
+%
+%% 封面彩云纸背景
+%% 尺寸 1.633 x 2.333 in
+%    \begin{macrocode}
+\def\bupt@cover@texture{%
+  \setlength{\wpYoffset}{-1in}%
+  \ifcase\bupt@degree\relax%
+  \ThisTileWallPaper{1.6in}{2.3in}{bupttexturec}%
+  \or%
+  \ThisTileWallPaper{1.6in}{2.3in}{bupttexturey}%
+  \fi%
+}
+%</class>
+%    \end{macrocode}
+%
+% 密级
+%    \begin{macrocode}
+%<*config>
+\ifcase\bupt@classlevel\relax
+\def\bupt@meta@classlevel{公开}
+\or
+\def\bupt@meta@classlevel{限制}
+\or
+\def\bupt@meta@classlevel{秘密}
+\or
+\def\bupt@meta@classlevel{机密}
+\or
+\def\bupt@meta@classlevel{绝密}
+\or
+\def\bupt@meta@classlevel\bupt@meta@customclasslevel
+\fi
+%</config>
+%    \end{macrocode}
+%
+% 封面(封一)
+%    \begin{macrocode}
+%<*class>
+\newcommand{\titlebreak}{}
+\newcommand{\bupt@front@cover}{%
+  \ifnum\bupt@finish=0
+  \bupt@cover@texture
+  \fi
+  \vspace*{-1.3cm}
+  \begin{minipage}[t]{\textwidth}
+    \sihao
+    \bupt@label@classlevel\bupt@title@sep\bupt@meta@classlevel
+    \qquad\bupt@label@classdur\bupt@title@sep
+    \ifnum\bupt@classlevel>0
+    \bupt@meta@classdur
+    \fi
+  \end{minipage}\\[2cm]
+  \begin{minipage}[t]{\textwidth}
+    \centering
+    \includegraphics[width=12cm]{buptname}\par
+    \vspace{0.4cm}
+    \covertitlesize[1.0]{\hei\bupt@label@covertitle}\par
+    \vspace{1cm}
+    \includegraphics[width=3.5cm]{buptseal}
+  \end{minipage}\\[\stretch{1}]
+  \parbox[t]{\textwidth}{%
+    \centering
+    \xiaoer[1.5]
+    \setlength{\extrarowheight}{0pt}
+    \setlength{\arrayrulewidth}{0.5bp}
+    \begin{tabular}{@{}p{36bp}@{\bupt@title@sep}p{105mm}@{}}
+      \bupt@label@ctitle & %
+      \parbox[t]{105mm}{%
+        \centering%
+        \renewcommand\titlebreak{\\\global\let\bupt@long@title\@empty}
+        \rule[-5bp]{105mm}{0.5bp}\\[-27bp]
+        \bupt@meta@ctitle%
+      }%
+      \\%
+      \ifx\bupt@long@title\@empty
+      \cline{2-2}
+      \fi
+    \end{tabular}
+  }\\[1cm]
+  \begin{minipage}[t]{\textwidth}
+    \centering
+    \sihao[1.24]
+    \setlength{\extrarowheight}{0pt}
+    \setlength{\arrayrulewidth}{0.5bp}
+    \begin{tabular}{@{}p{1.96cm}@{}c@{}l@{}p{4.2cm}}
+      \bupt@label@studentid & \bupt@title@sep 
+      & {\hfill\bupt@hide{\bupt@meta@studentid}\hfill} \\
+      [-3pt] \cline{3-3} \\
+      \bupt@label@cauthor & \bupt@title@sep 
+      & {\hfill\bupt@hide{\bupt@meta@cauthor}\hfill} \\
+      [-3pt] \cline{3-3} \\
+      \bupt@label@cmajor & \bupt@title@sep 
+      & {\hfill\bupt@meta@cmajor\hfill} \\
+      [-3pt] \cline{3-3} \\
+      \bupt@label@csupervisor & \bupt@title@sep 
+      & {\hfill\bupt@hide{\bupt@meta@csupervisor}\hfill} \\
+      [-3pt] \cline{3-3} \\
+      \bupt@label@cdepartment & \bupt@title@sep 
+      & {\hfill\bupt@meta@cdepartment\hfill} \\
+      [-2pt] \cline{3-3} \\
+    \end{tabular}
+  \end{minipage}\\[1.5cm]
+  \begin{minipage}[t]{\textwidth}
+    \centering
+    {\sihao[1.0] \song \bupt@meta@cdate}
+  \end{minipage}
+}
+%</class>
+%    \end{macrocode}
+%
+% 前封里(封二)、底封里(封三)与封底(封四)
+%    \begin{macrocode}
+%<*class>
+\newcommand{\bupt@inside@front@cover}{%
+  \ifnum\bupt@finish=0%
+  \clearpage
+  \bupt@cover@texture
+  \clearpage
+  \else
+  \cleardoublepage
+  \fi
+}
+\newcommand{\bupt@inside@back@cover}{%
+  \cleardoublepage
+  \ifnum\bupt@finish=0%
+  \thispagestyle{bupt@empty}%
+  \bupt@cover@texture\ %
+  \fi
+}
+\newcommand{\bupt@back@cover}{%
+  \ifnum\bupt@finish=0%
+  \clearpage
+  \thispagestyle{bupt@empty}
+  \bupt@cover@texture\ %
+  \clearpage
+  \fi
+}
+%</class>
+%    \end{macrocode}
+%
+% 生成声明与授权页
+%    \begin{macrocode}
+%<*config>
+\def\bupt@declaration@title{独创性（或创新性）声明}
+\long\def\bupt@declaration@body{%
+  本人声明所呈交的论文是本人在导师指导下进行的研究工作及取得的研究成果。%
+  尽我所知，除了文中特别加以标注和致谢中所罗列的内容以外，论文中不包含%
+  其他人已经发表或撰写过的研究成果，也不包含为获得北京邮电大学或其他教%
+  育机构的学位或证书而使用过的材料。与我一同工作的同志对本研究所做的任%
+  何贡献均已在论文中作了明确的说明并表示了谢意。\par%
+  申请学位论文与资料若有不实之处，本人承担一切相关责任。%
+}
+\def\bupt@authorization@title{关于论文使用授权的说明}
+\long\def\bupt@authorization@body{%
+  学位论文作者完全了解北京邮电大学有关保留和使用学位论文的规定，即：研%
+  究生在校攻读学位期间论文工作的知识产权单位属北京邮电大学。学校有权保%
+  留并向国家有关部门或机构送交论文的复印件和磁盘，允许学位论文被查阅和%
+  借阅；学校可以公布学位论文的全部或部分内容，可以允许采用影印、缩印或%
+  其它复制手段保存、汇编学位论文。（保密的学位论文在解密后遵守此规定）%
+  \ifnum\bupt@classlevel=0 \par%
+  本学位论文不属于保密范围，适用本授权书。%
+  \else\par%
+  本学位论文属于保密在\bupt@meta@classdur解密后适用本授权书。%
+  \fi%
+} 
+\def\bupt@label@authorsigniture{本人签名：}
+\def\bupt@label@supervisorsigniture{导师签名：} 
+\def\bupt@label@date{日期：}
+%</config>
+%<*class>
+\newcommand\bupt@underline[2][6em]{%
+  \hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt%
+}
+%% 独创性声明与授权说明
+\newcommand{\bupt@declaration}{%
+  \begin{center}
+    \sihao[1.5]\hei\bupt@declaration@title
+  \end{center}
+  \par{%
+    \parindent\CJKtwospaces\bupt@declaration@body
+  }
+  \vskip1.2cm
+  \par{%
+    \parindent\CJKtwospaces
+    \bupt@label@authorsigniture\bupt@underline[38mm]\relax
+    \qquad
+    \bupt@label@date\bupt@underline[38mm]\relax
+  }%
+}
+\newcommand{\bupt@authorization}{%
+  \begin{center}
+    \sihao[1.5]\hei\bupt@authorization@title
+  \end{center}
+  \par{%
+    \parindent\CJKtwospaces\bupt@authorization@body
+  }
+  \vskip1.2cm
+  \par{%
+    \parindent\CJKtwospaces
+    \bupt@label@authorsigniture\bupt@underline[38mm]\relax
+    \qquad
+    \bupt@label@date\bupt@underline[38mm]\relax
+  }%
+  \vskip1cm
+  \par{%
+    \parindent\CJKtwospaces
+    \bupt@label@supervisorsigniture\bupt@underline[38mm]\relax
+    \qquad
+    \bupt@label@date\bupt@underline[38mm]\relax
+  }%
+}
+\newcommand{\bupt@makedeclauth}{%
+  \cleardoublepage
+  \vfill
+  \bupt@declaration
+  \vfill
+  \bupt@authorization
+  \vfill
+}
+%</class>
+%    \end{macrocode}
+%
+% 献辞页
+%    \begin{macrocode}
+%<*class>
+\newcommand{\BUPT@makededication}{%
+  \cleardoublepage
+  \input{dedication}
+}
+%    \end{macrocode}
+%
+% 生成封面 (包括封面、封面里、创新性声明与授权说明页、献辞页、中英文摘要)
+%    \begin{macrocode}
+\newcommand{\makefrontmatter}{
+  \frontmatter%
+  \hypersetup{%
+    pdftitle={\bupt@meta@ctitle},
+    pdfauthor={\bupt@hide{\bupt@meta@cauthor}}
+  }%
+  \phantomsection
+  \pdfbookmark[-1]{\bupt@meta@ctitle}{ctitle}
+  \normalsize%
+  \begin{titlepage}
+    \bupt@front@cover
+    \bupt@inside@front@cover
+    \bupt@makedeclauth
+  \end{titlepage}
+  \ifbupt@class@dedication
+  \bupt@makededication
+  \fi
+  \cleardoublepage
+  \normalsize
+  \bupt@makeabstract
+  \let\@tabular\bupt@tabular%
+  \tableofcontents
+}
+%% 生成中英文摘要页
+\newcommand{\bupt@makeabstract}{%
+  \pagestyle{bupt@headings}
+  \pagenumbering{Roman}
+  \bupt@chapter*[]%
+  {\bupt@label@cabstract}%
+  [\xiaosan\hei]%
+  [\centering\sanhao\hei\bupt@meta@ctitle]
+  {
+    \sihao[1.6]
+    \par{
+      \CJKindent
+      \song\bupt@meta@cabstract
+    }\par
+    \vspace{12bp}
+    \setbox0=\hbox{{\hei \bupt@label@ckeywords}}
+    \noindent\hangindent\wd0\hangafter1\box0\bupt@meta@ckeywords
+  }
+  \bupt@chapter*[]%
+  {\bupt@label@eabstract} % no tocline
+  [\xiaosan]
+  [\centering\sanhao\textbf{\MakeUppercase\bupt@meta@etitle}]
+  {    
+    \sihao[1.5]
+    \par{%
+      \CJKindent
+      \bupt@meta@eabstract
+    }\par
+    \vspace{24bp}
+    \setbox0=\hbox{\textbf{KEY WORDS:\enskip}}
+    \noindent\hangindent\wd0\hangafter1\box0\bupt@meta@ekeywords
+  }
+}
+%</class>
+%<*config>
+\def\bupt@label@ckeywords{关键词：}
+\def\bupt@label@cabstract{摘\hspace{1em}要}
+\def\bupt@label@eabstract{ABSTRACT}
+\def\kwsep{，}
+%</config>
+%    \end{macrocode}
+%
+% 符号说明
+%    \begin{macrocode}
+%<*class>
+\newenvironment{listofnotations}[1][2.5cm]{
+  \bupt@chapter*[]{\bupt@label@listofnotations} % 不入目录
+  \noindent\begin{list}{}%
+    {\vskip-30bp\xiaosi[1.6]
+      \renewcommand\makelabel[1]{##1\hfil}
+      \setlength{\labelwidth}{#1}  % 标签盒子宽度
+      \setlength{\labelsep}{0.5cm} % 标签与列表文本距离
+      \setlength{\itemindent}{0cm} % 标签缩进量
+      \setlength{\leftmargin}{\labelwidth+\labelsep+24bp} %
+      \setlength{\rightmargin}{0cm}
+      \setlength{\parsep}{0cm} % 段落间距
+      \setlength{\itemsep}{0cm} % 
+      \setlength{\listparindent}{0cm} % 段落缩进量
+      \setlength{\topsep}{0pt} % 
+    }}{\end{list}}
+%</class>
+%<config>\def\bupt@label@listofnotations{符号对照表}
+%    \end{macrocode}
+%
+% 参考文献表格式
+%    \begin{macrocode}
+%<config>\renewcommand\bibname{参考文献}
+%<*class>
+\let\bupt@bibsection\bibsection
+\ifbupt@class@chapbib\relax%
+\renewcommand{\bibsection}{%
+  \bupt@bibsection%
+  \addcontentsline{toc}{section}{\bibname}\wuhao[1.2]%
+  \setlength{\bibsep}{6bp plus 0.5ex minus 0.2ex}}
+\else
+\renewcommand{\bibsection}{%
+  \bupt@bibsection%
+  \addcontentsline{toc}{chapter}{\bibname}\wuhao[1.2]}
+\fi
+\bibpunct{[}{]}{,}{s}{}{,}
+\renewcommand\NAT@citesuper[3]{%
+  \ifNAT@swa
+  \unskip\kern\p@\textsuperscript{\NAT@@open #1\NAT@@close}%
+  \if*#3*%
+  \else%
+  \ (#3)%
+  \fi%
+  \else%
+  #1%
+  \fi%
+  \endgroup%
+}
+\DeclareRobustCommand\onlinecite{\@onlinecite}
+\def\@onlinecite#1{%
+  \begingroup%
+  \let\@cite\NAT@citenum%
+  \citep{#1}%
+  \endgroup%
+}
+%</class>
+%    \end{macrocode}
+%
+% 附录
+%    \begin{macrocode}
+%<*class>
+\let\bupt@appendix\appendix
+\renewenvironment{appendix}{%
+  \bupt@appendix
+  \gdef\@chapapp{\appendixname~\thechapter}
+}{}
+\newenvironment{appendix*}{%
+  \bupt@appendix
+  \gdef\@chapapp{\appendixname}%
+}{} 
+%</class>
+%    \end{macrocode}
+%
+% 缩略词表
+%    \begin{macrocode}
+%<config>\def\bupt@label@listofacronyms{缩略语表}
+%<*class>
+\setlength{\glsdescwidth}{0.9\linewidth} % 缩略语描述列宽
+\newglossarystyle{bupt@acronyms@style}{  % 设置自定义缩略语表格式
+  \glossarystyle{long}                   % 以 long 样式为基础
+  \renewcommand*{\glossaryentryfield}[5]{% 
+    \@glstarget{glo:##1}{##2} & ##3\CJKchar{"0FF}{"00C}##4\\}%
+}
+\glossarystyle{bupt@acronyms@style} % 选择自定义的缩略语表样式
+% 设置 acronym 词汇表的标题
+\newglossary[alg]{acronym}{acr}{acn}{\bupt@label@listofacronyms}
+\makeglossaries
+% 重载 \newacronym 命令
+\renewcommand{\newacronym}[5][]{
+  \newglossaryentry{#2}{%
+    type=\acronymtype,%
+    name={#3},
+    description={#4},
+    text={#3},%
+    descriptionplural={#4\acrpluralsuffix},%
+    first={#3}, %{#4 (#3)},%
+    plural={#3\acrpluralsuffix},%
+    firstplural={\@glo@descplural\space (\@glo@plural)},
+    symbol={#5},% 
+    #1}
+}
+% 重载 \cs{glsdisplayfirst} 命令
+\renewcommand{\glsdisplayfirst}[4]{
+  \!\CJKchar{"0FF}{"008}% 中文括号“（”
+  \!{#2}% 
+  \CJKchar{"0FF}{"00C}% 全宽逗号“，”
+  \!{#1}% 
+  \!\CJKchar{"0FF}{"009}% 中文括号“）”
+}
+\renewcommand{\glsdefaulttype}{acronym}
+\renewcommand{\glossarysection}[2][\@gls@title]{\chapter{#2}}
+\newcommand{\tableofacronyms}{\printglossary[type=\acronymtype]}
+\newenvironment{listofacronyms}[1][2.5cm]{%
+  \noindent
+  \begin{list}{}{%
+      \vskip-30bp\xiaosi[1.5]
+      \renewcommand\makelabel[1]{##1\hfil}
+      \setlength{\labelwidth}{#1}  % 标签盒子宽度
+      \setlength{\labelsep}{0.5cm} % 标签与列表文本距离
+      \setlength{\itemindent}{0cm} % 标签缩进量
+      \setlength{\leftmargin}{\labelwidth+\labelsep} %×ó±ß½ç
+      \setlength{\rightmargin}{0cm}
+      \setlength{\parsep}{0cm} % 段落间距
+      \setlength{\itemsep}{0cm} % 
+      \setlength{\listparindent}{0cm} % 段落缩进量
+      \setlength{\topsep}{0pt} % 
+    }
+  }{\end{list}}
+%</class>
+%    \end{macrocode}
+%
+% 攻读学位期间发表的学术论文目录
+%    \begin{macrocode}
+%<config>\def\bupt@label@tableofpublications{攻读学位期间发表的学术论文目录}
+%<*class>
+\def\newcite#1#2{%
+  \expandafter\gdef\csname bupt@cite@#1\endcsname{#2}
+  \expandafter\newcites{#1}{%
+    \protect%
+    \csname bupt@cite@#1\endcsname%
+  }
+  \ifnum\bupt@finish=2
+  \csname nocite#1\endcsname{BSTcontrol}
+  \fi
+  \csname bibliographystyle#1\endcsname{buptthesis}
+}
+% \def\newcite#1{%
+%   \expandafter\gdef\csname bupt@cite@#1\endcsname{\relax}
+%   \expandafter\newcites{#1}{%
+%     \protect%
+%     \csname bupt@cite@#1\endcsname%
+%   }
+%   \ifnum\bupt@finish=2
+%   \csname nocite#1\endcsname{BSTcontrol}
+%   \fi
+%   \csname bibliographystyle#1\endcsname{buptthesis}
+% }
+\newenvironment{tableofpublications}{%
+  \cleardoublepage       % 从奇数页开始
+  % [<tocline>]{<title>}[<titlesize>][<prefix>]
+  \bupt@chapter*[\bupt@label@tableofpublications]{%
+    \bupt@label@tableofpublications} % 学术论文目录标题
+%  \nocite{BSTnoetal}
+% \newcommand*{\bupt@backup@chapter}{\chapter}
+% \renewcommand*{\chapter}{\subsection}
+%  \nobibliography{IEEEabrv,#1}
+%  \begin{enumerate}[{[}1{]}]
+\wuhao[1.2]
+}
+{
+  \renewcommand*{\chapter}{\bupt@backup@chapter}
+%  \end{enumerate}
+}
+%</class>
+%    \end{macrocode}
+% 致谢
+%    \begin{macrocode}
+%<config>\def\bupt@label@acknowledgement{致\hspace{1em}谢}
+%<*class>
+\newenvironment{acknowledgement}{%
+  \cleardoublepage               % 从奇数页开始
+  \bupt@chapter*[\bupt@label@acknowledgement]{%
+    \bupt@label@acknowledgement}[\bupt@label@acknowledgement]
+}{}
+%</class>
+%    \end{macrocode}
+%
+% \subsection{数学相关}
+%
+% \subsubsection{公式相关}
+% 允许公式断行、分页 
+%    \begin{macrocode}
+% \allowdisplaybreaks[4]
+%    \end{macrocode}
+%
+% 公式编号
+%    \begin{macrocode}
+%<*class>
+\renewcommand{\eqref}[1]{\textup{(\ref{#1})}}
+\renewcommand\theequation{%
+  \ifnum \c@chapter>\z@% 
+  \thechapter-%
+  \fi\@arabic\c@equation%
+}
+%    \end{macrocode}
+%
+% \subsubsection{定理相关}
+% 证明环境方块乱跑
+%    \begin{macrocode}
+\gdef\@endtrivlist#1{%
+  \if@inlabel \indent \fi
+  \if@newlist \@noitemerr \fi
+  \ifhmode
+  \ifdim\lastskip >\z@ #1\unskip \par
+  \else #1\unskip \par \fi
+  \fi
+  \if@noparlist \else
+  \ifdim\lastskip >\z@
+  \@tempskipa\lastskip \vskip -\lastskip
+  \advance\@tempskipa\parskip \advance\@tempskipa -\@outerparskip
+  \vskip\@tempskipa
+  \fi
+  \@endparenv
+  \fi #1%
+}
+%    \end{macrocode}
+%
+% 定理用黑体，正文使用宋体，用冒号隔开
+%    \begin{macrocode}
+\renewtheoremstyle{plain}{%
+\item[\hskip\labelsep \theorem@headerfont%
+  ##1\ ##2%
+  \theorem@separator]
+}{%
+\item[\hskip\labelsep \theorem@headerfont%
+  ##1\ ##2\ %
+  \CJKleftparen ##3 \CJKrightparen \!%
+  \theorem@separator\!]%
+}
+\renewtheoremstyle{nonumberplain}{%
+\item[\hskip\labelsep \theorem@headerfont%
+  ##1%
+  \theorem@separator]%
+}{%
+\item[\hskip\labelsep \theorem@headerfont%
+  ##1\ 
+  \CJKleftparen ##3 \CJKrightparen \!%
+  \theorem@separator\!]%
+}
+\theoremstyle{plain}
+\theorembodyfont{\song\rmfamily}
+\theoremheaderfont{\hei\bfseries}
+\theoremsymbol{}
+%</class>
+%<*config>
+\newtheorem{assumption}{假设}[chapter]
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{proposition}{命题}[chapter]
+\newtheorem{lemma}{引理}[chapter]
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{axiom}{公理}[chapter]
+\newtheorem{corollary}{推论}[chapter]
+\newtheorem{example}{例}[chapter]
+\newtheorem{remark}{注释}[chapter]
+\newtheorem{problem}{问题}[chapter]
+\newtheorem{conjecture}{猜想}[chapter]
+\theoremsymbol{\ensuremath{\square}}
+\theoremstyle{nonumberplain}
+\newtheorem{proof}{证明：}
+\theoremseparator{}
+%</config>
+%    \end{macrocode}
+%
+% \subsection{浮动环境}
+%
+% 浮动环境与正文间距
+%    \begin{macrocode}
+%<*class>
+\setlength{\floatsep}{12bp \@plus4pt \@minus1pt}
+\setlength{\intextsep}{12bp \@plus4pt \@minus2pt}
+\setlength{\textfloatsep}{12bp \@plus4pt \@minus2pt}
+\setlength{\@fptop}{0bp \@plus1.0fil}
+\setlength{\@fpsep}{12bp \@plus2.0fil}
+\setlength{\@fpbot}{0bp \@plus1.0fil}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.65}
+\renewcommand{\floatpagefraction}{0.60}
+%    \end{macrocode}
+%
+% 图注与表注
+%    \begin{macrocode}
+\let\old@tabular\@tabular
+\def\bupt@tabular{\wuhao[1.5]\old@tabular}
+\DeclareCaptionLabelFormat{bupt}{%
+  {\wuhao[1.5]\kai #1~\rmfamily #2}
+}
+\DeclareCaptionLabelSeparator{bupt}{\hspace{1em}}
+\DeclareCaptionFont{bupt}{\wuhao[1.5]\song}
+\captionsetup{%
+  labelformat=bupt,%
+  labelsep=bupt,%
+  font=bupt%
+}
+\captionsetup[table]{%
+  position=top,%
+  belowskip={12bp-\intextsep},%
+  aboveskip=3bp%
+}
+\captionsetup[figure]{%
+  position=bottom,%
+  belowskip={12bp-\intextsep},%
+  aboveskip=-2bp%
+}
+\captionsetup[subfloat]{%
+  font=bupt,%
+  captionskip=6bp,%
+  nearskip=6bp,%
+  farskip=0bp,%
+  topadjust=0bp%
+}
+\renewcommand\thefigure{%
+  \ifnum \c@chapter>\z@ 
+  \thechapter-\fi\@arabic\c@figure%
+}
+\renewcommand\thetable{%
+  \ifnum \c@chapter>\z@ %
+  \thechapter-\fi\@arabic\c@table%
+}
+%    \end{macrocode}
+%
+% \subsubsection{三线表}
+%    \begin{macrocode}
+\def\LT@c@ption#1[#2]#3{%
+  \LT@makecaption#1\fnum@table{#3}%
+  \def\@tempa{#2}%
+  \ifx\@tempa\@empty%
+  \else{%
+    \let\\\space%
+    \addcontentsline{lot}{table}{%
+      \protect\numberline{%
+        \tablename\hskip0.5em\thetable%
+      }{#2}
+    }
+  }%
+  \fi%
+}
+\let\bupt@LT@array\LT@array
+\def\LT@array{\wuhao[1.5]\bupt@LT@array}
+\def\hlinewd#1{%
+  \noalign{\ifnum0=`}\fi%
+  \hrule \@height #1 \futurelet
+  \reserved@a\@xhline%
+}
+%</class>
+%<*config>
+\renewcommand\figurename{图}
+\renewcommand\tablename{表}
+%</config>
+%    \end{macrocode}
+%
+% \Finale
+%
+%    \begin{macrocode}
+%<*dtxsty>
+\ProvidesPackage{dtx-style}
+
+\RequirePackage{calc}
+\RequirePackage{array,longtable,booktabs}
+\RequirePackage{fancybox,fancyvrb}
+\RequirePackage{xcolor}
+
+\RequirePackage{times}
+\RequirePackage{CJKutf8}
+\RequirePackage{CJKpunct}
+\RequirePackage{CJKspace}
+
+\RequirePackage{amsmath,amssymb}
+
+\RequirePackage{hyperref}
+\hypersetup{%
+  unicode=true,
+  CJKbookmarks=false,
+  bookmarksnumbered=true,
+  bookmarksopen=true,
+  bookmarksopenlevel=1,
+  breaklinks=true,
+  linkcolor=blue,
+  plainpages=false,
+  pdfpagelabels,
+  pdfborder=0 0 0}
+\RequirePackage{url}
+\RequirePackage{indentfirst}
+
+\renewcommand{\ttdefault}{cmtt}
+
+\setlength{\parskip}{4pt plus1pt minus0pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
+\setlength{\parindent}{20pt}
+\addtolength{\oddsidemargin}{-1cm}
+\advance\textwidth 1.5cm
+\addtolength{\topmargin}{-1cm}
+\addtolength{\headsep}{0.3cm}
+\addtolength{\textheight}{2.3cm}
+
+\newcommand\song{\CJKfamily{song}}
+\newcommand\hei{\CJKfamily{hei}}
+\newcommand\kai{\CJKfamily{kai}}
+\newcommand\fs{\CJKfamily{fs}}
+\def\CJKtwochars{\CJKchar{"030}{"000}\CJKchar{"030}{"000}}
+\newlength\CJKtwospaces
+\newcommand{\CJKemdash}{%
+  \settowidth\CJKtwospaces\CJKtwochars%
+  \kern0.3ex\rule[0.8ex]{\CJKtwospaces}{0.25bp}\kern0.3ex%
+}
+
+\renewcommand{\baselinestretch}{1.3}
+\setlength{\shadowsize}{1.5pt}
+\def\DescribeOption#1{\SpecialOptionIndex{#1}}
+\def\SpecialOptionIndex#1{\index{#1\actualchar\textbf{#1}}}
+\renewenvironment{description}{%
+  \list{}{%
+    \setlength\itemsep{-6pt}%
+    \setlength\labelwidth{3cm}%
+    \setlength\labelsep{3pt}%
+    \setlength\leftmargin{\labelwidth+\labelsep}%
+    \addtolength{\itemsep}{3pt}%
+    \renewcommand\makelabel[1]{%
+      {\color{green!40!blue!90}\ovalbox{\vphantom{Ag}\texttt{##1}}}
+      \DescribeOption{##1}%
+    }%
+  }%
+}{%
+  \endlist%
+}
+
+\DefineVerbatimEnvironment{shell}{Verbatim}{%
+  frame=single,%
+  framerule=0.75pt,%
+  rulecolor=\color{red!75!green!50!blue},%
+  fillcolor=none,%\color{red!!green!50!blue!15},%
+  framesep=2mm,%
+  baselinestretch=1.2,%
+  fontsize=\small,%
+  gobble=1%
+}
+
+\long\def\myentry#1{%
+  \vskip5pt\par\noindent\llap{%
+    {\color{blue!50!black!80}\emph{#1}}%
+  }%
+  \marginpar{\strut}\hskip\parindent%
+}
+
+\def\tableofcontents{%
+  \renewcommand{\baselinestretch}{1.0}%
+  \@starttoc{toc}%
+}
+
+\def\DescribeMacro{\Describe@Macro}
+
+\def\Describe@Macro#1{%
+  \PrintDescribeMacro{#1}%
+  \SpecialUsageIndex{#1}%
+}
+
+\def\PrintDescribeMacro#1{%
+  {%
+    \color{-red!75!green!50!blue!55}%
+    \MacroFont \string #1\hskip1em%
+  }%
+}
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \def\@oddhead{%
+    \vbox{%
+      \hb@xt@%
+      \textwidth{%
+        \llap{\fbox{\rightmark\rule[-2pt]{0pt}{13pt}}}%
+        \hfil\thepage%
+      }%
+      \vskip-0.7pt%
+      \hb@xt@ \textwidth{\hrulefill}%
+    }%
+  }%
+  \let\@evenfoot\@oddfoot
+  \let\@evenhead\@oddhead
+  \let\@mkboth\markboth
+  \def\sectionmark##1{%
+    \markright{%
+      \ifnum \c@secnumdepth >\m@ne%
+      \thesection\quad%
+      \fi
+      ##1%
+    }%
+  }%
+  \def\subsectionmark##1{%
+    \markright{%
+      \ifnum \c@secnumdepth >\m@ne%
+      \thesubsection\quad%
+      \fi%
+      ##1%
+    }%
+  }%
+  \def\subsubsectionmark##1{%
+    \markright{%
+      \ifnum \c@secnumdepth >\m@ne%
+      \thesubsubsection\quad%
+      \fi%
+      ##1%
+    }%
+  }%
+}
+
+\renewcommand\section{%
+  \@startsection{section}{1}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus.2ex}%
+  {\normalfont\Large\bfseries}%
+}
+
+\renewcommand\subsection{%
+  \@startsection{subsection}{2}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\large\bfseries}
+}
+
+\renewcommand\subsubsection{%
+  \@startsection{subsubsection}{3}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}%
+}
+
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{4}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}%
+}
+
+\renewcommand\subparagraph{%
+  \@startsection{subparagraph}{5}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}%
+}
+
+\pagestyle{empty}
+%</dtxsty>
+%    \end{macrocode}
+\endinput
+
+% Local Variables: 
+% mode: doctex
+% TeX-master: t
+% End: 
